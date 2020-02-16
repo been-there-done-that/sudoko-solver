@@ -25,3 +25,21 @@ def possible(y,x,n):
             if grid[y0 + i][x0 + j] == n :
                 return False
     return True
+
+
+def solve():
+    global grid
+    for y in range(9):
+        for x in range(9):
+            if grid[y][x] == 0:
+                import pdb;pdb.set_trace()
+                for n in range(1,10):
+                    if possible(y,x,n):
+                        grid[y][x] = n
+                        solve()
+                        grid[y][x] = 0
+                        
+                return
+            
+    print(np.matrix(grid))
+solve()
